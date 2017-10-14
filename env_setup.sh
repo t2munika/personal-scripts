@@ -10,9 +10,12 @@ alias up='git checkout'
 alias rebase='git fetch && git rebase master'
 
 # create branch
-function nb {
-  git branch $1 origin/master
-  git pull
+function nb() {
+  upstream="$2"
+  if [ -z upstream ]; then
+    upstream="origin/master"
+  fi
+  git branch $1 $upstream
 }
 
 # list branches
