@@ -7,15 +7,15 @@ alias sl='git log --graph --decorate'
 alias up='git checkout'
 
 # update master
-alias rebase='git fetch && git rebase master'
+alias rebase='git fetch && git rebase main'
 
 # create branch
 function nb() {
   upstream="$2"
   if [ -z upstream ]; then
-    upstream="origin/master"
+    upstream="origin/main"
   fi
-  git branch $1 $upstream
+  git checkout -b $1 $upstream
 }
 
 # list branches
